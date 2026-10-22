@@ -1,0 +1,45 @@
+package com.smartwheelchair.app.ui.theme
+
+import androidx.compose.ui.graphics.Color
+
+val TealPrimary = Color(0xFF0B5F67)
+val TealAccent = Color(0xFF0F7480)
+val TealLightText = Color(0xFFD5EEF0)
+val TealFooter = Color(0xFFBFE3E6)
+
+val LightBackground = Color(0xFFF4F7F6)
+val LightSurface = Color(0xFFFFFFFF)
+val LightBorder = Color(0xFFDCE6E5)
+val LightTextPrimary = Color(0xFF0F2A2E)
+val LightTextMuted = Color(0xFF4A5F63)
+val LightAccentButton = Color(0xFF0E7C86)
+val LightAccentTintBg = Color(0xFFE3F3F4)
+val LightAccentText = Color(0xFF0B5F67)
+val LightStopButton = Color(0xFFC62828)
+val LightTabContainer = Color(0xFFE6EDEC)
+val LightDarkBtnBg = Color(0xFF0F2A2E)
+
+val DarkBackground = Color(0xFF0E1A1C)
+val DarkSurface = Color(0xFF17272A)
+val DarkBorder = Color(0xFF26393C)
+val DarkTextPrimary = Color(0xFFEAF4F3)
+val DarkTextMuted = Color(0xFF9DB5B8)
+val DarkAccentButton = Color(0xFF2BB3BF)
+val DarkAccentButtonContent = Color(0xFF04252A)
+val DarkAccentTintBg = Color(0xFF12383D)
+val DarkAccentText = Color(0xFF7FD8E0)
+val DarkStopButton = Color(0xFFD32F2F)
+val DarkTabContainer = Color(0xFF17272A)
+val DarkTabSelected = Color(0xFF26393C)
+val DarkDarkBtnBg = Color(0xFFEAF4F3)
+val DarkDarkBtnContent = Color(0xFF0E1A1C)
+
+val ConnectedBgLight = Color(0xFFE2F4EA)
+val ConnectedTextLight = Color(0xFF176B3F)
+val OfflineBgLight = Color(0xFFFDECEA)
+val OfflineTextLight = Color(0xFFB3261E)
+
+val ConnectedBgDark = Color(0xFF12382A)
+val ConnectedTextDark = Color(0xFF6FE0A4)
+val OfflineBgDark = Color(0xFF3A1B1D)
+val OfflineTextDark = Color(0xFFFF9A9A)
