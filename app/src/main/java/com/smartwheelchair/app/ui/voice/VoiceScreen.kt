@@ -60,24 +60,29 @@ fun VoiceScreen(
     modifier: Modifier = Modifier
 ) {
     val context = LocalContext.current
+    val isInPreview = androidx.compose.ui.platform.LocalInspectionMode.current
     val connectionState by viewModel.connectionState.collectAsState()
     val recentCommands by viewModel.recentCommands.collectAsState()
     val uiState by viewModel.uiState.collectAsState()
     val colors = WheelchairTheme.colors
 
     val speechController = remember {
-        SpeechController(
-            context = context,
-            onPartialResult = viewModel::onPartialResult,
-            onFinalResult = viewModel::onFinalResult,
-            onError = viewModel::onError,
-            onStateChanged = viewModel::onStateChanged
-        )
+        if (!isInPreview) {
+            SpeechController(
+                context = context,
+                onPartialResult = viewModel::onPartialResult,
+                onFinalResult = viewModel::onFinalResult,
+                onError = viewModel::onError,
+                onStateChanged = viewModel::onStateChanged
+            )
+        } else {
+            null
+        }
     }
 
     DisposableEffect(Unit) {
         onDispose {
-            speechController.destroy()
+            speechController?.destroy()
         }
     }
 
@@ -85,7 +90,7 @@ fun VoiceScreen(
         contract = ActivityResultContracts.RequestPermission()
     ) { isGranted ->
         if (isGranted) {
-            speechController.startListening()
+            speechController?.startListening()
         } else {
             viewModel.onError("Microphone permission is required for voice control.")
         }
@@ -180,9 +185,9 @@ fun VoiceScreen(
                                 .clip(CircleShape)
                                 .background(colors.accentButton)
                                 .clickable {
-                                    speechController.stopListening()
+                                    speechController?.stopListening()
                                     if (ContextCompat.checkSelfPermission(context, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) {
-                                        speechController.startListening()
+                                        speechController?.startListening()
                                     } else {
                                         permissionLauncher.launch(Manifest.permission.RECORD_AUDIO)
                                     }
@@ -302,7 +307,7 @@ fun VoiceScreen(
         // Always-visible STOP button
         StopButton(
             onClick = {
-                speechController.stopListening()
+                speechController?.stopListening()
                 viewModel.sendStop()
             },
             height = 60.dp,

@@ -48,7 +48,7 @@ fun WelcomeScreen(
             verticalArrangement = Arrangement.SpaceBetween
         ) {
             Column {
-                // Top-left pill "Semester project"
+                // Top-left pill "AssistX"
                 Box(
                     modifier = Modifier
                         .clip(CircleShape)
@@ -56,7 +56,7 @@ fun WelcomeScreen(
                         .padding(horizontal = 12.dp, vertical = 6.dp)
                 ) {
                     Text(
-                        text = "Semester project",
+                        text = "AssistX",
                         color = Color.White,
                         fontSize = 13.sp,
                         fontWeight = FontWeight.SemiBold
